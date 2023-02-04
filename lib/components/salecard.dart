@@ -12,7 +12,7 @@ class SaleCard extends StatelessWidget {
     return Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.black87,
+          color: Colors.black,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
@@ -59,7 +59,7 @@ class SaleCard extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 35, vertical: 18),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey.shade800,
+                    color: Colors.grey.shade900,
                   ),
                   child: const Icon(
                     Icons.favorite_outline_rounded,
@@ -71,7 +71,7 @@ class SaleCard extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 65, vertical: 15),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
-                    color: Colors.grey.shade800,
+                    color: Colors.grey.shade900,
                   ),
                   child: Row(
                     children: [

@@ -52,14 +52,6 @@ class ProductsProvider with ChangeNotifier{
     ),
     Product(
       id:'p5',
-      title:'Smart Watch',
-      category:'c3',
-      price:'\$500',
-      description:'The groundbreaking Smart Watch recently released',
-      imageUrl:'assets/images/smartwatch.png',
-    ),
-    Product(
-      id:'p6',
       title:'Tablet Pro',
       category:'c2',
       price:'\$500',
@@ -67,92 +59,100 @@ class ProductsProvider with ChangeNotifier{
       imageUrl:'assets/images/tabletpro.png',
     ),
     Product(
-      id:'p7',
+      id:'p6',
       title:'Smart TV',
       category:'c3',
       price:'\$500',
-      description:'Improve your home expreience with the new Smart TV recently released',
+      description:'Improve your home experience with the new Smart TV recently released',
       imageUrl:'assets/images/tv.png',
     ),
     Product(
-      id:'p8',
+      id:'p7',
       title:'MX Wireless Headphone',
       category:'c5',
       price:'\$230',
-      description:'Improve your home expreience with the new Smart TV recently released',
+      description:'The groundbreaking MX Wireless Headphone recently released',
       imageUrl:'assets/images/mxwireless.png',
     ),
     Product(
-      id:'p9',
+      id:'p8',
       title:'H2 Wireless',
       category:'c5',
       price:'\$350',
-      description:'Improve your home expreience with the new Smart TV recently released',
+      description:'The groundbreaking H2 Wireless Headphone recently released',
       imageUrl:'assets/images/h2wireless.png',
     ),
     Product(
-      id:'p10',
+      id:'p9',
       title:' M2 Macbook Air',
       category:'c1',
       price:'\$2000',
-      description:'Improve your home expreience with the new Smart TV recently released',
+      description:'The groundbreaking M2 Macbook Air released by Apple',
       imageUrl:'assets/images/m2macbook.png',
     ),
      Product(
-      id:'p11',
+      id:'p10',
       title:'Iphone 12 ',
       category:'c2',
       price:'\$850',
-      description:'Improve your home expreience with the new Smart TV recently released',
+      description:'The groundbreaking Iphone 12 released by Apple',
       imageUrl:'assets/images/iphone12.png',
     ),
     Product(
-      id:'p12',
+      id:'p11',
       title:'Foldable Headset',
       category:'c5',
       price:'\$250',
-      description:'Improve your home expreience with the new Smart TV recently released',
+      description:'The groundbreaking Foldable Headset released recently',
       imageUrl:'assets/images/foldable.png',
     ),
     Product(
-      id:'p13',
+      id:'p12',
       title:'IPhone 14',
       category:'c2',
       price:'\$1000',
-      description:'Improve your home expreience with the new Smart TV recently released',
+      description:'The groundbreaking Iphone 14 released by Apple',
       imageUrl:'assets/images/iphone14.png',
     ),
     Product(
-      id:'p14',
+      id:'p13',
       title:'Samsung Galaxy A23',
       category:'c2',
       price:'\$500',
-      description:'Improve your home expreience with the new Smart TV recently released',
+      description:'The groundbreaking Samsung Galaxy A23 recently released by Samsung',
       imageUrl:'assets/images/galaxyA23.png',
     ),
     Product(
-      id:'p15',
+      id:'p14',
       title:'IPhone XR',
       category:'c2',
       price:'\$1200',
-      description:'Improve your home expreience with the new Smart TV recently released',
+      description:'The groundbreaking Iphone XR released by Apple',
       imageUrl:'assets/images/iphonexr.png',
     ),
     Product(
-      id:'p16',
-      title:'IPhone XR',
-      category:'c2',
+      id:'p15',
+      title:'Porodo Wireless',
+      category:'c5',
       price:'\$1200',
-      description:'Improve your home expreience with the new Smart TV recently released',
-      imageUrl:'assets/images/iphonexr.png',
+      description:'The groundbreaking Porodo Wireless released recently',
+      imageUrl:'assets/images/porodowireless.png',
     ),
      Product(
-      id:'p17',
+      id:'p16',
       title:'Macbook Pro 14''',
       category:'c1',
       price:'\$2000',
-      description:'Improve your home expreience with the new Smart TV recently released',
+      description:'The groundbreaking Macboook Pro 14 '' released by Apple',
       imageUrl:'assets/images/macbookpro14.png',
+    ),
+    Product(
+      id:'p17',
+      title:'Iphone 11 Pro',
+      category:'c2',
+      price:'\$2000',
+      description:'The groundbreaking Iphone 11 Pro released by Apple',
+      imageUrl:'assets/images/iphone11pro.png',
     ),
   ];
 
@@ -186,14 +186,14 @@ class ProductsProvider with ChangeNotifier{
 
   
   // A getter which returns the products list
-  List<Product> get products=>_product;
+List<Product> get products=>_product;
 
    // getter for categories list
-  List<Category> get category=>[...categories];
+List<Category> get category=>[...categories];
 
   
   // this getter returns the first three products in the filtered products list
-  List get getFirstThree=>_filteredProducts.sublist(0,min(_filteredProducts.length,3));
+List get getFirstThree=>_filteredProducts.sublist(0,min(_filteredProducts.length,3));
 
 //getter which returns the filtered products
  List<Product> get getFilteredProducts=> _filteredProducts;
@@ -203,6 +203,11 @@ class ProductsProvider with ChangeNotifier{
  void filteredProd(int index){
    _filteredProducts= products.where((prod) =>prod.category.contains(categories[index].id)).toList();
   notifyListeners();
+}
+
+// function which returns the first product which matches the id
+Product findbyId(String id){
+  return _product.firstWhere((prod) =>prod.id==id);
 }
 
 //function which helps to switch categories based on the provided index

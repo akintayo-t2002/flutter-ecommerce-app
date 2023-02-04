@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius:BorderRadius.circular(12),
                     border:Border.all(color:Colors.grey.shade300,width:2),
                   ),
-                  child:Image.asset('assets/icons/cart.png'),
+                  child:Image.asset('assets/icons/shopping-bag.png'),
                 )
                   ],
                 ),
@@ -106,10 +106,15 @@ class _HomeScreenState extends State<HomeScreen> {
                           childAspectRatio:0.9,
                         ),
                         itemCount:value.getFilteredProducts.length,
-                        itemBuilder:(ctx,i)=>SmallItemCard(
-                          itemName: value.getFilteredProducts[i].title, 
-                          imageUrl:value.getFilteredProducts[i].imageUrl , 
-                          itemPrice:value.getFilteredProducts[i].price),
+                        itemBuilder:(ctx,i)=>GestureDetector(
+                          onTap:(){
+                            Navigator.of(context).pushNamed('/first',arguments:value.getFilteredProducts[i].id);
+                          },
+                          child: SmallItemCard(
+                            itemName: value.getFilteredProducts[i].title, 
+                            imageUrl:value.getFilteredProducts[i].imageUrl , 
+                            itemPrice:value.getFilteredProducts[i].price),
+                        ),
                       )
                     ],
                   ),
