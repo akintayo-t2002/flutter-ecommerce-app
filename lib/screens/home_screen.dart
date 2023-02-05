@@ -115,7 +115,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: SmallItemCard(
                               itemName: value.getFilteredProducts[i].title, 
                               imageUrl:value.getFilteredProducts[i].imageUrl , 
-                              itemPrice:value.getFilteredProducts[i].price),
+                              itemPrice:value.getFilteredProducts[i].price, 
+                              isToggled:value.products[i].isFavourite,
+                              onTap: () {value.toggleFavourites(i);},),
+                              
                           ),
                         ),
                       )

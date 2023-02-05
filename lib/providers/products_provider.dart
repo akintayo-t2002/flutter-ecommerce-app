@@ -219,4 +219,10 @@ void categorySelected(int index){
     notifyListeners();
  }
 }
+
+void toggleFavourites(int i){
+  _product[i].isFavourite=!_product[i].isFavourite;
+  showlog.log('Toggled');
+  notifyListeners();
+}
 }

@@ -1,13 +1,14 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
+
 class SmallItemCard extends StatelessWidget {
-  const SmallItemCard({super.key, required this.itemName, required this.imageUrl, required this.itemPrice});
+   SmallItemCard({super.key, required this.itemName, required this.imageUrl, required this.itemPrice,required this.onTap,required this.isToggled});
 
   final String itemName;
   final String imageUrl;
   final String itemPrice;
+  void Function()? onTap;
+  bool isToggled;
 
   @override
   Widget build(BuildContext context) {
@@ -41,9 +42,7 @@ class SmallItemCard extends StatelessWidget {
       Align(
         alignment:Alignment.topRight,
         child:GestureDetector(
-          onTap:(){
-            log('Clicked');
-          },
+          onTap:onTap,
           child: Container(
             height:35,
             width:35,
@@ -51,7 +50,8 @@ class SmallItemCard extends StatelessWidget {
               color:Colors.black,
               borderRadius:BorderRadius.circular(8)
             ),
-            child:const Icon(Icons.favorite_outline,color:Colors.white,),
+            child:Icon(isToggled?Icons.favorite:Icons.favorite_outline,
+            color:isToggled?Colors.red: Colors.white),
           ),
         ),
       )
