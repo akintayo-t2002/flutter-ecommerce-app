@@ -8,7 +8,7 @@ class SmallItemCard extends StatelessWidget {
   final String imageUrl;
   final String itemPrice;
   void Function()? onTap;
-  bool isToggled;
+  final bool isToggled;
 
   @override
   Widget build(BuildContext context) {

@@ -12,7 +12,7 @@ class ProductsProvider with ChangeNotifier{
   final List<Product> _product=[
     Product(
       id:'p0',
-      category:'c5',
+      category:'Headphones',
       title:'Airpod 3',
       price:'\$500',
       description:'The groundbreaking Airpod 3 released recently by the apple team',
@@ -20,7 +20,7 @@ class ProductsProvider with ChangeNotifier{
     ),
     Product(
       id:'p1',
-      category:'c4',
+      category:'Consoles',
       title:'PS5 Controller',
       price:'\$100',
       description:'The groundbreaking PS5 controller released recently by Sony',
@@ -29,7 +29,7 @@ class ProductsProvider with ChangeNotifier{
     Product(
       id:'p2',
       title:'Earbud',
-      category: 'c5',
+      category: 'Headphones',
       price:'\$250',
       description:'The groundbreaking Earbud released recently released',
       imageUrl:'assets/images/earbud.png',
@@ -37,7 +37,7 @@ class ProductsProvider with ChangeNotifier{
     Product(
       id:'p3',
       title:'Macbook Pro',
-      category:'c1',
+      category:'Laptops',
       price:'\$1200',
       description:'The groundbreaking Macbook Pro built by the apple engineering team',
       imageUrl:'assets/images/macbookpro1.png',
@@ -45,7 +45,7 @@ class ProductsProvider with ChangeNotifier{
     Product(
       id:'p4',
       title:'Macbook Pro',
-      category: 'c1',
+      category: 'Laptops',
       price:'\$1500',
       description:'The groundbreaking Macbook Pro released recently by the apple team',
       imageUrl:'assets/images/macbookpro.png',
@@ -53,7 +53,7 @@ class ProductsProvider with ChangeNotifier{
     Product(
       id:'p5',
       title:'Tablet Pro',
-      category:'c2',
+      category:'Phones',
       price:'\$500',
       description:'The groundbreaking Tablet Pro released recently released',
       imageUrl:'assets/images/tabletpro.png',
@@ -61,7 +61,7 @@ class ProductsProvider with ChangeNotifier{
     Product(
       id:'p6',
       title:'Smart TV',
-      category:'c3',
+      category:'Television',
       price:'\$500',
       description:'Improve your home experience with the new Smart TV recently released',
       imageUrl:'assets/images/tv.png',
@@ -69,7 +69,7 @@ class ProductsProvider with ChangeNotifier{
     Product(
       id:'p7',
       title:'MX Wireless Headphone',
-      category:'c5',
+      category:'Headphones',
       price:'\$230',
       description:'The groundbreaking MX Wireless Headphone recently released',
       imageUrl:'assets/images/mxwireless.png',
@@ -77,7 +77,7 @@ class ProductsProvider with ChangeNotifier{
     Product(
       id:'p8',
       title:'H2 Wireless',
-      category:'c5',
+      category:'Headphones',
       price:'\$350',
       description:'The groundbreaking H2 Wireless Headphone recently released',
       imageUrl:'assets/images/h2wireless.png',
@@ -85,7 +85,7 @@ class ProductsProvider with ChangeNotifier{
     Product(
       id:'p9',
       title:' M2 Macbook Air',
-      category:'c1',
+      category:'Laptops',
       price:'\$2000',
       description:'The groundbreaking M2 Macbook Air released by Apple',
       imageUrl:'assets/images/m2macbook.png',
@@ -93,7 +93,7 @@ class ProductsProvider with ChangeNotifier{
      Product(
       id:'p10',
       title:'Iphone 12 ',
-      category:'c2',
+      category:'Phones',
       price:'\$850',
       description:'The groundbreaking Iphone 12 released by Apple',
       imageUrl:'assets/images/iphone12.png',
@@ -101,7 +101,7 @@ class ProductsProvider with ChangeNotifier{
     Product(
       id:'p11',
       title:'Foldable Headset',
-      category:'c5',
+      category:'Headphones',
       price:'\$250',
       description:'The groundbreaking Foldable Headset released recently',
       imageUrl:'assets/images/foldable.png',
@@ -109,7 +109,7 @@ class ProductsProvider with ChangeNotifier{
     Product(
       id:'p12',
       title:'IPhone 14',
-      category:'c2',
+      category:'Phones',
       price:'\$1000',
       description:'The groundbreaking Iphone 14 released by Apple',
       imageUrl:'assets/images/iphone14.png',
@@ -117,7 +117,7 @@ class ProductsProvider with ChangeNotifier{
     Product(
       id:'p13',
       title:'Samsung Galaxy A23',
-      category:'c2',
+      category:'Phones',
       price:'\$500',
       description:'The groundbreaking Samsung Galaxy A23 recently released by Samsung',
       imageUrl:'assets/images/galaxyA23.png',
@@ -125,7 +125,7 @@ class ProductsProvider with ChangeNotifier{
     Product(
       id:'p14',
       title:'IPhone XR',
-      category:'c2',
+      category:'Phones',
       price:'\$1200',
       description:'The groundbreaking Iphone XR released by Apple',
       imageUrl:'assets/images/iphonexr.png',
@@ -133,7 +133,7 @@ class ProductsProvider with ChangeNotifier{
     Product(
       id:'p15',
       title:'Porodo Wireless',
-      category:'c5',
+      category:'Headphones',
       price:'\$1200',
       description:'The groundbreaking Porodo Wireless released recently',
       imageUrl:'assets/images/porodowireless.png',
@@ -141,7 +141,7 @@ class ProductsProvider with ChangeNotifier{
      Product(
       id:'p16',
       title:'Macbook Pro 14''',
-      category:'c1',
+      category:'Laptops',
       price:'\$2000',
       description:'The groundbreaking Macboook Pro 14 '' released by Apple',
       imageUrl:'assets/images/macbookpro14.png',
@@ -149,7 +149,7 @@ class ProductsProvider with ChangeNotifier{
     Product(
       id:'p17',
       title:'Iphone 11 Pro',
-      category:'c2',
+      category:'Phones',
       price:'\$2000',
       description:'The groundbreaking Iphone 11 Pro released by Apple',
       imageUrl:'assets/images/iphone11pro.png',
@@ -158,27 +158,27 @@ class ProductsProvider with ChangeNotifier{
 
   List<Category> categories=[
     Category(
-      id:'c1',
+      id:'Laptops',
       title:'Laptops',
       isSelected:true,
     ),
     Category(
-      id:'c2',
+      id:'Phones',
       title:'Phones',
       isSelected:false,
     ),
     Category(
-      id:'c3',
+      id:'Television',
       title:'Televisions',
       isSelected:false,
     ),
     Category(
-      id:'c4',
+      id:'Consoles',
       title:'Consoles',
       isSelected:false,
     ),
     Category(
-      id:'c5',
+      id:'Headphones',
       title:'Headphones',
       isSelected:false,
     )

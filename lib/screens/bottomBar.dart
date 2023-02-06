@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'favourites_screen.dart';
 import 'home_screen.dart';
 import 'notification_screen.dart';

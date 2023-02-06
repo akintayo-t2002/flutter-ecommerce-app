@@ -10,121 +10,128 @@ class ProductsDetailsScreen extends StatelessWidget {
     var height=MediaQuery.of(context).size.height;
       final productId=ModalRoute.of(context)!.settings.arguments as String;
       final loadedProducts=Provider.of<ProductsProvider>(context).findbyId(productId);
-    return Hero(
-      tag:loadedProducts.id,
-      child: Scaffold(
-        backgroundColor:const Color(0xFFe7e8f1),
-        body:SafeArea(
-          child: Stack(
-            children: [
-             SizedBox(
-                child:Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:15.0),
-                  child: SizedBox(  
-                    child: Column(
-                      children:[
-                        SizedBox(
-                          width:double.infinity,
-                          child: Row(
-                            mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                            children:[
-                            GestureDetector(
-                             onTap:(){ Navigator.pop(context);},
-                              child: const Icon(Icons.arrow_back_ios_new)),
-                           GestureDetector(
-                            onTap:(){
-                              Provider.of<ProductsProvider>(context,listen:false).toggleFavourites(productId);
-                            },
-                             child: Container(
-                              height:42,
-                              width:42,
-                              decoration: BoxDecoration(
-                                color:Colors.black,
-                                borderRadius:BorderRadius.circular(10),
-                              ),
-                              child:Icon(loadedProducts.isFavourite?Icons.favorite:Icons.favorite_outline,
-                              color:loadedProducts.isFavourite?Colors.red:Colors.white,),),
-                           ),
-                           ], 
-                          ),
-                        ),
-                        Image.asset(loadedProducts.imageUrl,),
-                      ],
-                    ),
-                  ),
-                )
-              ), 
-              Align(
-                alignment:Alignment.bottomCenter,
-                child: Container(
-                  height:height*0.35,
-                  width:double.infinity,
-                  decoration:const BoxDecoration(
-                    color:Colors.black,
-                    borderRadius:BorderRadius.only(
-                      topLeft:Radius.circular(55),
-                      topRight:Radius.circular(55))
-                  ),
+    return ClipRRect(
+      child: Hero(
+        tag:loadedProducts.id,
+        child: Scaffold(
+          backgroundColor:const Color(0xFFe7e8f1),
+          body:SafeArea(
+            child: Stack(
+              children: [
+               SizedBox(
                   child:Padding(
-                    padding: const EdgeInsets.symmetric(horizontal:30.0),
-                    child: SizedBox(
+                    padding: const EdgeInsets.symmetric(horizontal:15.0),
+                    child: SizedBox(  
                       child: Column(
-                        crossAxisAlignment:CrossAxisAlignment.start,
                         children:[
-                          const SizedBox(height:25,),
-                          Text(loadedProducts.title,style:const TextStyle(
-                            fontSize:32,
-                            color:Colors.white,
-                            fontWeight:FontWeight.w700,
-                          ),),
-                          const SizedBox(height:10,),
-                          Expanded(
-                            child: Text(loadedProducts.description,
-                            style:TextStyle(
-                              fontSize:17,
-                              color:Colors.grey.shade700,
-                            ),),
-                          ),
-                          const Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.only(bottom:15.0),
+                          SizedBox(
+                            width:double.infinity,
                             child: Row(
                               mainAxisAlignment:MainAxisAlignment.spaceBetween,
                               children:[
-                               Expanded(
-                                 child: Text(loadedProducts.price,style:const TextStyle(
+                              GestureDetector(
+                               onTap:(){ Navigator.pop(context);},
+                                child: const Icon(Icons.arrow_back_ios_new)),
+                             ], 
+                            ),
+                          ),
+                          Image.asset(loadedProducts.imageUrl,),
+                        ],
+                      ),
+                    ),
+                  )
+                ), 
+                Align(
+                  alignment:Alignment.bottomCenter,
+                  child: Container(
+                    height:height*0.35,
+                    width:double.infinity,
+                    decoration:const BoxDecoration(
+                      color:Colors.black,
+                      borderRadius:BorderRadius.only(
+                        topLeft:Radius.circular(55),
+                        topRight:Radius.circular(55))
+                    ),
+                    child:Padding(
+                      padding: const EdgeInsets.symmetric(horizontal:30.0),
+                      child: SizedBox(
+                        child: Column(
+                          crossAxisAlignment:CrossAxisAlignment.start,
+                          children:[
+                            const SizedBox(height:25,),
+                            Row(
+                              mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(loadedProducts.title,style:const TextStyle(
+                                  fontSize:32,
                                   color:Colors.white,
-                                  fontSize:25,fontWeight:FontWeight.w700,
-                                 ),),
-                               ),
-                                Container(
-                                  padding:const EdgeInsets.symmetric(horizontal:20,vertical:15),
-                                  decoration: BoxDecoration(
-                                    color:const Color(0xFFe7e8f1),
-                                    borderRadius:BorderRadius.circular(25),
-                                  ),
-                                  child:Row(
-                                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                                    children:[
-                                     const Text('Add to cart',style:TextStyle(
-                                       fontSize:16,
-                                       fontWeight:FontWeight.w700,
-                                     ),),
-                                      const SizedBox(width:10,),
-                                      Image.asset('assets/icons/shopping-bag.png',height:18,),
-                                    ],
-                                  ),
-                                )
+                                  fontWeight:FontWeight.w700,
+                                ),),
+                                GestureDetector(
+                              onTap:(){
+                                Provider.of<ProductsProvider>(context,listen:false).toggleFavourites(productId);
+                              },
+                               child: Container(
+                                height:42,
+                                width:42,
+                                decoration: BoxDecoration(
+                                  color:Colors.grey.shade900,
+                                  borderRadius:BorderRadius.circular(10),
+                                ),
+                                child:Icon(loadedProducts.isFavourite?Icons.favorite:Icons.favorite_outline,
+                                color:loadedProducts.isFavourite?Colors.red:Colors.white,),),
+                             ),
                               ],
                             ),
-                          )
-                        ],
+                            const SizedBox(height:10,),
+                            Expanded(
+                              child: Text(loadedProducts.description,
+                              style:TextStyle(
+                                fontSize:17,
+                                color:Colors.grey.shade700,
+                              ),),
+                            ),
+                            const Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom:15.0),
+                              child: Row(
+                                mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                children:[
+                                 Expanded(
+                                   child: Text(loadedProducts.price,style:const TextStyle(
+                                    color:Colors.white,
+                                    fontSize:25,fontWeight:FontWeight.w700,
+                                   ),),
+                                 ),
+                                  Container(
+                                    padding:const EdgeInsets.symmetric(horizontal:20,vertical:15),
+                                    decoration: BoxDecoration(
+                                      color:const Color(0xFFe7e8f1),
+                                      borderRadius:BorderRadius.circular(25),
+                                    ),
+                                    child:Row(
+                                      mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                      children:[
+                                       const Text('Add to cart',style:TextStyle(
+                                         fontSize:16,
+                                         fontWeight:FontWeight.w700,
+                                       ),),
+                                        const SizedBox(width:10,),
+                                        Image.asset('assets/icons/shopping-bag.png',height:18,),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
