@@ -48,14 +48,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   fontSize:28,
                   fontWeight:FontWeight.w700,
                 ),),
-                Container(
-                  height:42,
-                  width:42,
-                  decoration:BoxDecoration(
-                    borderRadius:BorderRadius.circular(12),
-                    border:Border.all(color:Colors.grey.shade300,width:2),
+                GestureDetector(
+                  onTap:(){
+                    Navigator.pushNamed(context,'/third');
+                  },
+                  child: Container(
+                    height:42,
+                    width:42,
+                    decoration:BoxDecoration(
+                      borderRadius:BorderRadius.circular(12),
+                      border:Border.all(color:Colors.grey.shade300,width:2),
+                    ),
+                    child:Image.asset('assets/icons/shopping-bag.png',height:5,),
                   ),
-                  child:Image.asset('assets/icons/shopping-bag.png',height:10,),
                 )
                   ],
                 ),

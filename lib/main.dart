@@ -27,9 +27,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes:{
-        '/':(context)=>const CartEmpty(),
+        '/':(context)=>const BottomBar(),
         '/first':(context) => const ProductsDetailsScreen(),
         '/second':(context) => const CartScreen(),
+        '/third':(context)=> const CartEmpty(),
       },
       );
   }

@@ -35,7 +35,7 @@ class Favouritesscreen extends StatelessWidget {
                         const SizedBox(height:20,),
                         GestureDetector(
                           onTap:(){
-                            Navigator.of(context).pushReplacementNamed('/first',arguments:favourite[i].id);
+                            Navigator.of(context).pushNamed('/first',arguments:favourite[i].id);
                           },
                           child: FavouritesItem(
                            productName:favourite[i].title,
