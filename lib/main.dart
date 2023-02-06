@@ -1,5 +1,6 @@
 import 'package:ecommerceapp/providers/products_provider.dart';
 import 'package:ecommerceapp/screens/bottomBar.dart';
+import 'package:ecommerceapp/screens/cart_empty.dart';
 import 'package:ecommerceapp/screens/cart_screen.dart';
 import 'package:ecommerceapp/screens/favourites_screen.dart';
 import 'package:ecommerceapp/screens/product_details_screen.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes:{
-        '/':(context)=>const BottomBar(),
+        '/':(context)=>const CartEmpty(),
         '/first':(context) => const ProductsDetailsScreen(),
         '/second':(context) => const CartScreen(),
       },

@@ -33,10 +33,15 @@ class Favouritesscreen extends StatelessWidget {
                     Column(
                       children: [
                         const SizedBox(height:20,),
-                        FavouritesItem(
-                         productName:favourite[i].title,
-                         productCategory:favourite[i].category,
-                         imageUrl:favourite[i].imageUrl,
+                        GestureDetector(
+                          onTap:(){
+                            Navigator.of(context).pushReplacementNamed('/first',arguments:favourite[i].id);
+                          },
+                          child: FavouritesItem(
+                           productName:favourite[i].title,
+                           productCategory:favourite[i].category,
+                           imageUrl:favourite[i].imageUrl,
+                          ),
                         ),
                       ],
                     )
