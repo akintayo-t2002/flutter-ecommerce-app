@@ -26,6 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
 });
     super.initState();
   }
+
+  
+
   
   @override
   Widget build(BuildContext context) {
@@ -69,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap:(){
                       value.categorySelected(i);
                       value.filteredProd(i);
-                      log('message');
+                      log(value.getFilteredProducts[i].title);
                     }),
                     scrollDirection:Axis.horizontal,
                  ),
@@ -106,18 +109,20 @@ class _HomeScreenState extends State<HomeScreen> {
                           childAspectRatio:0.9,
                         ),
                         itemCount:value.getFilteredProducts.length,
-                        itemBuilder:(ctx,i)=>Hero(
-                          tag:value.getFilteredProducts[i].id,
+                        itemBuilder:(ctx,index)=>Hero(
+                          tag:value.getFilteredProducts[index].id,
                           child: GestureDetector(
                             onTap:(){
-                              Navigator.of(context).pushNamed('/first',arguments:value.getFilteredProducts[i].id);
+                              Navigator.of(context).pushNamed('/first',arguments:value.getFilteredProducts[index].id);
                             },
                             child: SmallItemCard(
-                              itemName: value.getFilteredProducts[i].title, 
-                              imageUrl:value.getFilteredProducts[i].imageUrl , 
-                              itemPrice:value.getFilteredProducts[i].price, 
-                              isToggled:value.products[i].isFavourite,
-                              onTap: () {value.toggleFavourites(i);},),
+                              itemName: value.getFilteredProducts[index].title, 
+                              imageUrl:value.getFilteredProducts[index].imageUrl , 
+                              itemPrice:value.getFilteredProducts[index].price, 
+                              isToggled:value.getFilteredProducts[index].isFavourite,
+                              onTap: (){
+                              value.toggleFavourites(value.getFilteredProducts[index].id);},
+                              ),
                               
                           ),
                         ),

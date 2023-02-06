@@ -20,8 +20,7 @@ class ProductsDetailsScreen extends StatelessWidget {
              SizedBox(
                 child:Padding(
                   padding: const EdgeInsets.symmetric(horizontal:15.0),
-                  child: SizedBox(
-                    width:double.infinity,
+                  child: SizedBox(  
                     child: Column(
                       children:[
                         SizedBox(
@@ -32,14 +31,20 @@ class ProductsDetailsScreen extends StatelessWidget {
                             GestureDetector(
                              onTap:(){ Navigator.pop(context);},
                               child: const Icon(Icons.arrow_back_ios_new)),
-                           Container(
-                            height:42,
-                            width:42,
-                            decoration: BoxDecoration(
-                              color:Colors.black,
-                              borderRadius:BorderRadius.circular(10),
-                            ),
-                            child:const Icon(Icons.favorite_outline,color:Colors.white,),),
+                           GestureDetector(
+                            onTap:(){
+                              Provider.of<ProductsProvider>(context,listen:false).toggleFavourites(productId);
+                            },
+                             child: Container(
+                              height:42,
+                              width:42,
+                              decoration: BoxDecoration(
+                                color:Colors.black,
+                                borderRadius:BorderRadius.circular(10),
+                              ),
+                              child:Icon(loadedProducts.isFavourite?Icons.favorite:Icons.favorite_outline,
+                              color:loadedProducts.isFavourite?Colors.red:Colors.white,),),
+                           ),
                            ], 
                           ),
                         ),
@@ -63,7 +68,6 @@ class ProductsDetailsScreen extends StatelessWidget {
                   child:Padding(
                     padding: const EdgeInsets.symmetric(horizontal:30.0),
                     child: SizedBox(
-                      width:double.infinity,
                       child: Column(
                         crossAxisAlignment:CrossAxisAlignment.start,
                         children:[

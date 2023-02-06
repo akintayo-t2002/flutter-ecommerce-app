@@ -1,14 +1,13 @@
 import 'package:ecommerceapp/providers/products_provider.dart';
 import 'package:ecommerceapp/screens/bottomBar.dart';
 import 'package:ecommerceapp/screens/cart_screen.dart';
-import 'package:ecommerceapp/screens/home_screen.dart';
 import 'package:ecommerceapp/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create:(ctx)=>ProductsProvider(),
+  runApp(ChangeNotifierProvider.value(
+    value:ProductsProvider(),
     child: const MyApp()));
 }
 

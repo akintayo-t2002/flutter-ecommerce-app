@@ -220,9 +220,16 @@ void categorySelected(int index){
  }
 }
 
-void toggleFavourites(int i){
-  _product[i].isFavourite=!_product[i].isFavourite;
-  showlog.log('Toggled');
+List<Product> favorites=[];
+
+// function which marks a product as favourite
+void toggleFavourites(String productId) {
+  final existingProductIndex =
+      products.indexWhere((product) => product.id == productId);
+  if (existingProductIndex >= 0) {
+    products[existingProductIndex].isFavourite =
+        !products[existingProductIndex].isFavourite;
+  }
   notifyListeners();
 }
 }
