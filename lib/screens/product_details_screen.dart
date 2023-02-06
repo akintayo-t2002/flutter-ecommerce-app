@@ -62,11 +62,13 @@ class ProductsDetailsScreen extends StatelessWidget {
                             Row(
                               mainAxisAlignment:MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(loadedProducts.title,style:const TextStyle(
-                                  fontSize:32,
-                                  color:Colors.white,
-                                  fontWeight:FontWeight.w700,
-                                ),),
+                                Expanded(
+                                  child: Text(loadedProducts.title,style:const TextStyle(
+                                    fontSize:32,
+                                    color:Colors.white,
+                                    fontWeight:FontWeight.w700,
+                                  ),),
+                                ),
                                 GestureDetector(
                               onTap:(){
                                 Provider.of<ProductsProvider>(context,listen:false).toggleFavourites(productId);
