@@ -12,7 +12,7 @@ class CategoriesTile extends StatelessWidget {
     return GestureDetector(
       onTap:onTap,
       child: Padding(
-        padding: const EdgeInsets.only(right:5.0),
+        padding: const EdgeInsets.only(right:15.0),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           decoration: BoxDecoration(

@@ -11,6 +11,10 @@ class CartEmpty extends StatelessWidget {
         backgroundColor:Colors.white,
         elevation:0,
         centerTitle:false,
+        leading:IconButton(
+          icon:const Icon(Icons.arrow_back_ios_new,color:Colors.black,),
+          onPressed:(){Navigator.pop(context);},
+        ),
         title:const Text('My Cart',style:TextStyle(
           fontWeight:FontWeight.w700,
           fontSize:25,
@@ -25,11 +29,11 @@ class CartEmpty extends StatelessWidget {
             const SizedBox(height:200,),
             Image.asset('assets/icons/empty-cart.png',color:Colors.grey.shade500,),
             const SizedBox(height:20,),
-             Text('Oops, your shopping cart is empty! \n     Add items you want to by.',style:TextStyle(
+             Text('Oops, your shopping cart is empty! \n     Add items you want to buy.',style:TextStyle(
               fontSize:20,
               color:Colors.grey.shade500,
             ),),
-            const Spacer()
+            const Spacer(),
           ],
         ),
       ),

@@ -21,17 +21,19 @@ class SaleCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
+                  mainAxisAlignment:MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const SizedBox(height:10,),
                     Text(
                       itemName,
                       style:const TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: 25,
                       ),
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
                     Text(
                       itemPrice,
@@ -41,6 +43,35 @@ class SaleCard extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
+                    const SizedBox(height:15,),
+                    Container(
+              padding:
+                  const EdgeInsets.symmetric(horizontal:25, vertical: 15),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.grey.shade900,
+              ),
+              child: Row(
+                children: [
+                  SizedBox(
+                      width: 20,
+                      child: Image.asset(
+                        'assets/icons/cart.png',
+                        color: Colors.white,
+                      )),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    'Buy',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                  )
+                ],
+              ),
+            )
                   ],
                 ),
                 Expanded(
@@ -51,51 +82,7 @@ class SaleCard extends StatelessWidget {
                 )
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 35, vertical: 18),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey.shade900,
-                  ),
-                  child: const Icon(
-                    Icons.favorite_outline_rounded,
-                    color: Colors.white,
-                  ),
-                ),
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 65, vertical: 15),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(18),
-                    color: Colors.grey.shade900,
-                  ),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                          width: 20,
-                          child: Image.asset(
-                            'assets/icons/cart.png',
-                            color: Colors.white,
-                          )),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      const Text(
-                        'Add',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            )
+            
           ],
         ));
   }
