@@ -34,8 +34,8 @@ class MyApp extends StatelessWidget {
         routes:{
           '/':(context)=>const BottomBar(),
           '/first':(context) => const ProductsDetailsScreen(),
-          '/second':(context) => const CartScreen(),
-          '/third':(context)=> const CartEmpty(),
+          // '/second':(context) => const CartScreen(),
+          '/third':(context)=> const CartScreen(),
         },
         ),
     );

@@ -9,6 +9,9 @@ import 'package:ecommerceapp/providers/products_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../components/badge.dart';
+import '../providers/cart_provider.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -52,20 +55,26 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap:(){
                     Navigator.pushNamed(context,'/third');
                   },
-                  child: Container(
-                    height:42,
-                    width:42,
-                    decoration:BoxDecoration(
-                      borderRadius:BorderRadius.circular(12),
-                      border:Border.all(color:Colors.grey.shade300,width:2),
+                  child: Consumer<CartProvider>(
+                    builder:(context,value,child)=>Badge(
+                    color:Colors.red,
+                    value:value.cartCount.toString(),
+                    child: Container(
+                      height:42,
+                      width:42,
+                      decoration:BoxDecoration(
+                        borderRadius:BorderRadius.circular(12),
+                        border:Border.all(color:Colors.grey.shade300,width:2),
+                      ),
+                      child:Image.asset('assets/icons/shopping-bag.png',height:5,),
                     ),
-                    child:Image.asset('assets/icons/shopping-bag.png',height:5,),
                   ),
+                  )
                 )
                   ],
                 ),
                const SizedBox(height:20,),
-               const CustomField(hintText:'Search for a Product...', icon:Icons.search),
+               const CustomField(hintText:'Search', icon:Icons.search),
                const SizedBox(height:10,),
                SizedBox(
                 height:size.height*0.06,
@@ -89,19 +98,27 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       SizedBox(
                         height:size.height*0.24,
-                        child: Swiper(
+                        child: Consumer2<CartProvider,ProductsProvider>(
+                          builder:((context,cart,product, child) =>Swiper(
                           autoplay:value.getFirstThree.length>1 ?true:false,
                           pagination:const SwiperPagination(
                             builder:DotSwiperPaginationBuilder(
                             activeColor: Colors.grey,
                             )
                           ),
-                          itemCount:value.getFirstThree.length,
+                          itemCount:product.getFirstThree.length,
                           itemBuilder:(ctx,i)=>SaleCard(
-                            itemName:value.getFirstThree[i].title,
-                            itemPrice: value.getFirstThree[i].price, 
-                            imageUrl: value.getFirstThree[i].imageUrl),
-                        ),
+                            itemName:product.getFirstThree[i].title,
+                            itemPrice:product.getFirstThree[i].price, 
+                            imageUrl:product.getFirstThree[i].imageUrl, 
+                            onTap: () {
+                              cart.addItem(
+                                product.getFirstThree[i].id,
+                              product.getFirstThree[i].title,
+                              product.getFirstThree[i].price);
+                            },),
+                        )),
+                        )
                       ),
                       const SizedBox(height:15,),
                       GridView.builder(

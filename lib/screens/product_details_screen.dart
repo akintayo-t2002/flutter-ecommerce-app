@@ -2,6 +2,9 @@ import 'package:ecommerceapp/providers/products_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../components/badge.dart';
+import '../providers/cart_provider.dart';
+
 class ProductsDetailsScreen extends StatelessWidget {
   const ProductsDetailsScreen({super.key});
 
@@ -10,6 +13,7 @@ class ProductsDetailsScreen extends StatelessWidget {
     var height=MediaQuery.of(context).size.height;
       final productId=ModalRoute.of(context)!.settings.arguments as String;
       final loadedProducts=Provider.of<ProductsProvider>(context).findbyId(productId);
+      final cart=Provider.of<CartProvider>(context);
     return ClipRRect(
       child: Hero(
         tag:loadedProducts.id,
@@ -31,7 +35,23 @@ class ProductsDetailsScreen extends StatelessWidget {
                               children:[
                               GestureDetector(
                                onTap:(){ Navigator.pop(context);},
-                                child: const Icon(Icons.arrow_back_ios_new)),
+                               child: const Icon(Icons.arrow_back_ios_new)),
+                          Consumer<CartProvider>(
+                    builder:(context,value,ch)=>Badge(
+                    color:Colors.red,
+                    value:value.cartCount.toString(),
+                    child:ch!,
+                  ),
+                  child: Container(
+                      height:42,
+                      width:42,
+                      decoration:BoxDecoration(
+                        borderRadius:BorderRadius.circular(12),
+                        border:Border.all(color:Colors.grey.shade300,width:2),
+                      ),
+                      child:Image.asset('assets/icons/shopping-bag.png',height:5,),
+                    ),
+                  )
                              ], 
                             ),
                           ),
@@ -105,22 +125,27 @@ class ProductsDetailsScreen extends StatelessWidget {
                                     fontSize:25,fontWeight:FontWeight.w700,
                                    ),),
                                  ),
-                                  Container(
-                                    padding:const EdgeInsets.symmetric(horizontal:20,vertical:15),
-                                    decoration: BoxDecoration(
-                                      color:const Color(0xFFe7e8f1),
-                                      borderRadius:BorderRadius.circular(25),
-                                    ),
-                                    child:Row(
-                                      mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                                      children:[
-                                       const Text('Add to cart',style:TextStyle(
-                                         fontSize:16,
-                                         fontWeight:FontWeight.w700,
-                                       ),),
-                                        const SizedBox(width:10,),
-                                        Image.asset('assets/icons/shopping-bag.png',height:18,),
-                                      ],
+                                  GestureDetector(
+                                    onTap:(){
+                                   cart.addItem(loadedProducts.id,loadedProducts.title, loadedProducts.price);
+                                    },
+                                    child: Container(
+                                      padding:const EdgeInsets.symmetric(horizontal:20,vertical:15),
+                                      decoration: BoxDecoration(
+                                        color:const Color(0xFFe7e8f1),
+                                        borderRadius:BorderRadius.circular(25),
+                                      ),
+                                      child:Row(
+                                        mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                        children:[
+                                         const Text('Add to cart',style:TextStyle(
+                                           fontSize:16,
+                                           fontWeight:FontWeight.w700,
+                                         ),),
+                                          const SizedBox(width:10,),
+                                          Image.asset('assets/icons/shopping-bag.png',height:18,),
+                                        ],
+                                      ),
                                     ),
                                   )
                                 ],

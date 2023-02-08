@@ -16,6 +16,9 @@ class CartProvider with ChangeNotifier{
 
   Map<String,Cart> get cartItem=>_item;
 
+  //getter which returns the total cart item length
+  int get cartCount=>_item.isEmpty?0:_item.length;
+
   void addItem(String productId, String title, String price){
     if(_item.containsKey(productId)){
       //Here if the product already exists in the cart, we need to increase the quantity of the product
@@ -34,5 +37,6 @@ class CartProvider with ChangeNotifier{
         quantity:1,
       ));
     }
+    notifyListeners();
   }
 }

@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 class SaleCard extends StatelessWidget {
   const SaleCard(
-      {super.key, required this.itemName, required this.itemPrice, required this.imageUrl});
+      {super.key, required this.itemName, required this.itemPrice, required this.imageUrl,required this.onTap});
 
   final String itemName;
   final String imageUrl;
   final String itemPrice;
+  final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,32 +45,35 @@ class SaleCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height:15,),
-                    Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal:25, vertical: 15),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Colors.grey.shade900,
-              ),
-              child: Row(
-                children: [
-                  SizedBox(
-                      width: 20,
-                      child: Image.asset(
-                        'assets/icons/cart.png',
-                        color: Colors.white,
-                      )),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  const Text(
-                    'Buy',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
+            GestureDetector(
+              onTap:onTap,
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal:25, vertical: 15),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.grey.shade900,
+                ),
+                child: Row(
+                  children: [
+                    SizedBox(
+                        width: 20,
+                        child: Image.asset(
+                          'assets/icons/shopping-bag.png',
+                          color: Colors.white,
+                        )),
+                    const SizedBox(
+                      width: 10,
                     ),
-                  )
-                ],
+                    const Text(
+                      'Add',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    )
+                  ],
+                ),
               ),
             )
                   ],
