@@ -6,7 +6,7 @@ class Product{
   final String imageUrl;
   final String title;
   final String description;
-  final String price;
+  final double price;
   bool isFavourite;
   
   Product(

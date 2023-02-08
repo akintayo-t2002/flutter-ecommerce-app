@@ -1,11 +1,10 @@
-import 'package:ecommerceapp/components/cart_item.dart';
 import 'package:flutter/material.dart';
 
 class Cart{
   final String id;
   final String title;
   final int quantity;
-  final String price;
+  final double price;
 
   Cart({required this.id, required this.title, required this.quantity, required this.price});
 }
@@ -17,9 +16,10 @@ class CartProvider with ChangeNotifier{
   Map<String,Cart> get cartItem=>_item;
 
   //getter which returns the total cart item length
-  int get cartCount=>_item.isEmpty?0:_item.length;
+  int get cartCount=>_item.length;
 
-  void addItem(String productId, String title, String price){
+ // function to add a cart item
+  void addItem(String productId, String title, double price){
     if(_item.containsKey(productId)){
       //Here if the product already exists in the cart, we need to increase the quantity of the product
      _item.update(productId, (value) =>Cart(
@@ -38,5 +38,14 @@ class CartProvider with ChangeNotifier{
       ));
     }
     notifyListeners();
+  }
+  
+  //getter to obtain the total amount of items in the cart
+  double get totalAmount{
+    double total=0.00;
+    _item.forEach((key,cartItem) {
+      total += cartItem.price * cartItem.quantity;
+    });
+    return total;
   }
 }

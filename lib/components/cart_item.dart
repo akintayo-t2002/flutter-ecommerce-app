@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key});
+  const CartItem({super.key, required this.itemName, required this.price, required this.itemCategory, required this.imageUrl});
+  
+ final String imageUrl;
+ final String itemName;
+ final String price;
+ final String itemCategory;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-            crossAxisAlignment:CrossAxisAlignment.start,
-             children: [
-              const SizedBox(height:20,),
-              const Text('My Cart',style:TextStyle(
-                 fontWeight:FontWeight.w700,
-                 fontSize:25,
-                 color:Colors.black,
-                 ),),
-                 const SizedBox(height:10,),
-               Container(
+    return Container(
                 height:85,
                 width:double.infinity,
                 decoration:BoxDecoration(
@@ -24,31 +19,29 @@ class CartItem extends StatelessWidget {
                 ),
                 child:Row(
                   children: [
-                    Image.asset('assets/images/airpod3.png'),
+                    Image.asset(imageUrl),
                     Column(
                       mainAxisAlignment:MainAxisAlignment.center,
                       crossAxisAlignment:CrossAxisAlignment.start,
-                      children: const [
-                        Text('Airpod 3',style:TextStyle(
+                      children: [
+                       Text(itemName,style:const TextStyle(
                           fontWeight:FontWeight.w700,
                           fontSize:18,
                         ),),
-                        Text('Headphones'),
+                        Text(itemCategory),
+                        Text(price,style:TextStyle(
+                       fontWeight:FontWeight.w700,
+                       color:Colors.grey.shade700,
+                       fontSize:16,
+                      ),),
                       ],
                     ),
                     const Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.only(right:15.0),
-                      child: Text('\$150',style:TextStyle(
-                       fontWeight:FontWeight.w700,
-                       color:Colors.grey.shade700,
-                       fontSize:18,
-                      ),),
+                    const Padding(
+                      padding: EdgeInsets.only(right:15.0),
+                      child: Icon(Icons.delete,color:Colors.red,),
                     ),
                   ],
-                ),
-               ),
-             ],
-           );
+                ));
   }
 }

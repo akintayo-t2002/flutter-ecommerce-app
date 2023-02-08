@@ -37,11 +37,16 @@ class ProductsDetailsScreen extends StatelessWidget {
                                onTap:(){ Navigator.pop(context);},
                                child: const Icon(Icons.arrow_back_ios_new)),
                           Consumer<CartProvider>(
-                    builder:(context,value,ch)=>Badge(
-                    color:Colors.red,
-                    value:value.cartCount.toString(),
-                    child:ch!,
-                  ),
+                    builder:(context,value,ch)=>GestureDetector(
+                      onTap:(){
+                        Navigator.pushNamed(context,'/third');
+                      },
+                      child: Badge(
+                      color:Colors.red,
+                      value:value.cartCount.toString(),
+                      child:ch!,
+                    ),
+                    ),
                   child: Container(
                       height:42,
                       width:42,
@@ -120,14 +125,14 @@ class ProductsDetailsScreen extends StatelessWidget {
                                 mainAxisAlignment:MainAxisAlignment.spaceBetween,
                                 children:[
                                  Expanded(
-                                   child: Text(loadedProducts.price,style:const TextStyle(
+                                   child: Text('\$${loadedProducts.price}',style:const TextStyle(
                                     color:Colors.white,
                                     fontSize:25,fontWeight:FontWeight.w700,
                                    ),),
                                  ),
                                   GestureDetector(
                                     onTap:(){
-                                   cart.addItem(loadedProducts.id,loadedProducts.title, loadedProducts.price);
+                                   cart.addItem(loadedProducts.id,loadedProducts.title,loadedProducts.price);
                                     },
                                     child: Container(
                                       padding:const EdgeInsets.symmetric(horizontal:20,vertical:15),

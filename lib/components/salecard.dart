@@ -6,7 +6,7 @@ class SaleCard extends StatelessWidget {
 
   final String itemName;
   final String imageUrl;
-  final String itemPrice;
+  final double itemPrice;
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class SaleCard extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      itemPrice,
+                      '\$$itemPrice',
                       style:const TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,

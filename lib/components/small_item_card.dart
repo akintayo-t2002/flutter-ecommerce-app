@@ -6,7 +6,7 @@ class SmallItemCard extends StatelessWidget {
 
   final String itemName;
   final String imageUrl;
-  final String itemPrice;
+  final double itemPrice;
   void Function()? onTap;
   final bool isToggled;
 
@@ -31,7 +31,7 @@ class SmallItemCard extends StatelessWidget {
               Text(itemName,style:const TextStyle(
                 fontSize:17
               ),),
-              Text(itemPrice,style:const TextStyle(
+              Text('\$$itemPrice',style:const TextStyle(
                 fontSize:20,
                 fontWeight:FontWeight.w700,
               ),)
