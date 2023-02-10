@@ -7,20 +7,20 @@ class CartEmpty extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor:Colors.white,
-      appBar:AppBar(
-        backgroundColor:Colors.white,
-        elevation:0,
-        centerTitle:false,
-        leading:IconButton(
-          icon:const Icon(Icons.arrow_back_ios_new,color:Colors.black,),
-          onPressed:(){Navigator.pop(context);},
-        ),
-        title:const Text('My Cart',style:TextStyle(
-          fontWeight:FontWeight.w700,
-          fontSize:25,
-          color:Colors.black,
-        ),),
-      ),
+      // appBar:AppBar(
+      //   backgroundColor:Colors.white,
+      //   elevation:0,
+      //   centerTitle:false,
+      //   leading:IconButton(
+      //     icon:const Icon(Icons.arrow_back_ios_new,color:Colors.black,),
+      //     onPressed:(){Navigator.pop(context);},
+      //   ),
+      //   title:const Text('My Cart',style:TextStyle(
+      //     fontWeight:FontWeight.w700,
+      //     fontSize:25,
+      //     color:Colors.black,
+      //   ),),
+      // ),
       body:Center(
         child:Column(
           crossAxisAlignment:CrossAxisAlignment.center,

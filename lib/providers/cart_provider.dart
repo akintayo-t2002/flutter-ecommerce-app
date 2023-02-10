@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Cart{
+  final String itemImage;
   final String id;
   final String title;
   final int quantity;
   final double price;
 
-  Cart({required this.id, required this.title, required this.quantity, required this.price});
+  Cart({required this.itemImage,required this.id, required this.title, required this.quantity, required this.price});
 }
 
 class CartProvider with ChangeNotifier{
@@ -19,10 +20,11 @@ class CartProvider with ChangeNotifier{
   int get cartCount=>_item.length;
 
  // function to add a cart item
-  void addItem(String productId, String title, double price){
+  void addItem(String productId, String title, double price,String imageUrl){
     if(_item.containsKey(productId)){
       //Here if the product already exists in the cart, we need to increase the quantity of the product
      _item.update(productId, (value) =>Cart(
+      itemImage:value.itemImage,
       id:value.id,
       title:value.title,
       price:value.price,
@@ -31,6 +33,7 @@ class CartProvider with ChangeNotifier{
     }else{
       //if the product doesn't exist, add a new cart item
       _item.putIfAbsent(productId, () =>Cart(
+        itemImage:imageUrl,
         id:DateTime.now().toString(),
         title:title,
         price:price,
@@ -48,4 +51,10 @@ class CartProvider with ChangeNotifier{
     });
     return total;
   }
+
+// code to delete item from cart
+  void removeCartItem(String productId){
+    _item.remove(productId);
+    notifyListeners();
+    }
 }

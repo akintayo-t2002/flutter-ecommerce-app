@@ -132,7 +132,7 @@ class ProductsDetailsScreen extends StatelessWidget {
                                  ),
                                   GestureDetector(
                                     onTap:(){
-                                   cart.addItem(loadedProducts.id,loadedProducts.title,loadedProducts.price);
+                                   cart.addItem(loadedProducts.id,loadedProducts.title,loadedProducts.price,loadedProducts.imageUrl);
                                     },
                                     child: Container(
                                       padding:const EdgeInsets.symmetric(horizontal:20,vertical:15),

@@ -29,18 +29,24 @@ class CartScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal:18.0),
-          child: Consumer<CartProvider>(builder:(context,cart,value)=>Column(
+          child: Consumer<CartProvider>(builder:(context,cart,value)=>
+          cart.cartItem.isEmpty?const CartEmpty(): Column(
             children:[
              Expanded(
                child: ListView.builder(
                 itemCount:cart.cartCount,
+                shrinkWrap:true,
                 itemBuilder:(ctx,i)=>Padding(
-                  padding:const EdgeInsets.only(bottom:10),
-                  child: CartItem(
-                  imageUrl:'assets/images/iphone14.png',
+                  padding:const EdgeInsets.only(bottom:15),
+                  child:CartItem(
+                  id:cart.cartItem.values.toList()[i].id,
+                  productId:cart.cartItem.keys.toList()[i],
+                  imageUrl:cart.cartItem.values.toList()[i].itemImage,
                   itemName:cart.cartItem.values.toList()[i].title,
-                  price:cart.cartItem.values.toList()[i].price.toString(),
-                  itemCategory:'Category',
+                  price:cart.cartItem.values.toList()[i].price,
+                  quantity:cart.cartItem.values.toList()[i].quantity,
+                  onTap:(){
+                    cart.removeCartItem(cart.cartItem.keys.toList()[i]);},
                   ),
                 ),
                ),

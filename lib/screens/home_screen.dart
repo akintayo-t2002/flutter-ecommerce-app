@@ -113,9 +113,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             imageUrl:product.getFirstThree[i].imageUrl, 
                             onTap: () {
                               cart.addItem(
-                                product.getFirstThree[i].id,
-                              product.getFirstThree[i].title,
-                              product.getFirstThree[i].price);
+                                 product.getFirstThree[i].id,
+                                 product.getFirstThree[i].title,
+                                product.getFirstThree[i].price,
+                                product.getFirstThree[i].imageUrl,
+                               );
                             },),
                         )),
                         )
