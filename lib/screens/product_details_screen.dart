@@ -69,7 +69,7 @@ class ProductsDetailsScreen extends StatelessWidget {
                 Align(
                   alignment:Alignment.bottomCenter,
                   child: Container(
-                    height:height*0.35,
+                    height:height*0.48,
                     width:double.infinity,
                     decoration:const BoxDecoration(
                       color:Colors.black,
@@ -110,8 +110,9 @@ class ProductsDetailsScreen extends StatelessWidget {
                              ),
                               ],
                             ),
-                            const SizedBox(height:10,),
+                            const SizedBox(height:15,),
                             Expanded(
+                              flex:4,
                               child: Text(loadedProducts.description,
                               style:TextStyle(
                                 fontSize:17,

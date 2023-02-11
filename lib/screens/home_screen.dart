@@ -6,6 +6,7 @@ import 'package:ecommerceapp/components/custom_field.dart';
 import 'package:ecommerceapp/components/salecard.dart';
 import 'package:ecommerceapp/components/small_item_card.dart';
 import 'package:ecommerceapp/providers/products_provider.dart';
+import 'package:ecommerceapp/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -118,6 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 product.getFirstThree[i].price,
                                 product.getFirstThree[i].imageUrl,
                                );
+                              showSnackBar('Item added successfully', context);
                             },),
                         )),
                         )

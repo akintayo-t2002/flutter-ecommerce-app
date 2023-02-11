@@ -15,7 +15,7 @@ class ProductsProvider with ChangeNotifier{
       category:'Headphones',
       title:'Airpod 3',
       price:500,
-      description:'The groundbreaking Airpod 3 released recently by the apple team',
+      description:'The groundbreaking Airpod 3 released recently by the apple team.Powered by the all-new Universal H1 headphone chip, deliver a faster and more stable wireless connection to your devices are” up to 2x faster when switching between active devices, and a 1.5x faster connection time for phone calls.',
       imageUrl:'assets/images/airpod3.png',
     ),
     Product(
@@ -44,11 +44,11 @@ class ProductsProvider with ChangeNotifier{
     ),
     Product(
       id:'p4',
-      title:'Macbook Pro',
+      title:'M1 Macbook Pro 16.2\'\'',
       category: 'Laptops',
       price:1500,
-      description:'The groundbreaking Macbook Pro released recently by the apple team',
-      imageUrl:'assets/images/macbookpro.png',
+      description:'The groundbreaking Macbook Pro released recently by the apple team.The new MacBook Pro delivers game-changing performance for pro users.',
+      imageUrl:'assets/images/m1macbookpro.png',
     ),
     Product(
       id:'p5',
