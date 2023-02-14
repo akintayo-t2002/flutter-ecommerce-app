@@ -26,7 +26,7 @@ class CartItem extends StatelessWidget {
           vertical:4, 
         ),
         alignment:Alignment.centerRight,
-        color:Colors.red,
+        color:Colors.red.shade200,
         child:const Icon(Icons.delete,color:Colors.white,),),
       child: Container(
         margin:const EdgeInsets.only(

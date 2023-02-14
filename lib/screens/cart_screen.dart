@@ -13,6 +13,15 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor:Colors.white,
       appBar:AppBar(
+        actions:const [
+          Padding(
+            padding: EdgeInsets.only(right:15.0),
+            child: Chip(label:Text('ORDER NOW',style:TextStyle(
+              color:Colors.white,
+            ),)
+            ,backgroundColor:Colors.black,),
+          ),
+        ],
         backgroundColor:Colors.white,
         elevation:0,
         centerTitle:false,

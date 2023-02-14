@@ -12,8 +12,8 @@ class Cart{
 
 class CartProvider with ChangeNotifier{
 
-  final Map<String,Cart>_item={};
-
+  Map<String,Cart>_item={};
+                                                                                                                                                                                                                                                                                                                                                                                                                    
   Map<String,Cart> get cartItem=>_item;
 
   //getter which returns the total cart item length
@@ -52,9 +52,36 @@ class CartProvider with ChangeNotifier{
     return total;
   }
 
+// function to remove a single item, the function is used in the undo function of a snackbar
+  void removeSingleitem(String productId){
+  //here if the item doesn't exist in lets say a cart, then the function should not be called
+    if(!_item.containsKey(productId)){
+      return;
+    }
+
+    // if the item exist, then reduce the quantity by 1
+    if(_item[productId]!.quantity>1){
+      _item.update(productId, (existingCartItem) =>Cart(
+      itemImage:existingCartItem.itemImage, 
+      id: existingCartItem.id, 
+      title: existingCartItem.title, 
+      quantity: existingCartItem.quantity-1, 
+      price: existingCartItem.price),);
+    }else{
+      _item.remove(productId);
+    }
+    notifyListeners();
+  }
+
 // code to delete item from cart
   void removeCartItem(String productId){
     _item.remove(productId);
     notifyListeners();
     }
+
+//code to clear all cart items
+   void clear(){
+    _item={};
+    notifyListeners();
+   }
 }

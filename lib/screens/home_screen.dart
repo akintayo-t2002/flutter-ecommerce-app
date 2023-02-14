@@ -119,7 +119,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 product.getFirstThree[i].price,
                                 product.getFirstThree[i].imageUrl,
                                );
-                              showSnackBar('Item added successfully', context);
+                               ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                              showSnackBar(context,message:'Item added successfully',onPressed:(){
+                                    cart.removeSingleitem(product.getFirstThree[i].id);});
                             },),
                         )),
                         )

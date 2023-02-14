@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/providers/products_provider.dart';
+import 'package:ecommerceapp/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -134,6 +135,9 @@ class ProductsDetailsScreen extends StatelessWidget {
                                   GestureDetector(
                                     onTap:(){
                                    cart.addItem(loadedProducts.id,loadedProducts.title,loadedProducts.price,loadedProducts.imageUrl);
+                                   ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                                   showSnackBar(context,message:'Item added successfully',onPressed:(){
+                                    cart.removeSingleitem(loadedProducts.id);});
                                     },
                                     child: Container(
                                       padding:const EdgeInsets.symmetric(horizontal:20,vertical:15),
