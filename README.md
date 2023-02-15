@@ -1,7 +1,17 @@
 # ecommerceapp
 
-A new Flutter project.
+A Flutter E-commerce app
 
 ## Getting Started
 
-This is an ecommerce app with basic functionalities. Providers is used for state management. Users can add products to cart, delete products. The project also has an add favourites functionality for users to mark their favourite products.
+Highlighting points:
+- This is an ecommerce app built with flutter.
+- Providers is used for state management. 
+- The UI is easy to navigate around.
+- Users can filter products based on their categories.
+- Users can add products to cart, users can also delete products. 
+- The project also has an add to favourites functionality for users to mark their favourite products.
+
+Future updates:
+- Implementing a store API instead of dummy data for products.
+- Adding user authentication.
