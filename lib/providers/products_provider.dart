@@ -154,7 +154,64 @@ class ProductsProvider with ChangeNotifier{
       description:'The groundbreaking Iphone 11 Pro released by Apple',
       imageUrl:'assets/images/iphone11pro.png',
     ),
+    Product(
+      id:'p18',
+      title:'Kuhl 32\'\' Smart TV',
+      category:'Televisions',
+      price:2000,
+      description:'The groundbreaking Iphone 11 Pro released by Apple',
+      imageUrl:'assets/images/tv1.png',
+    ),
+    Product(
+      id:'p19',
+      title:'Samsung smart TV',
+      category:'Televisions',
+      price:2000,
+      description:'The groundbreaking Iphone 11 Pro released by Apple',
+      imageUrl:'assets/images/tv2.png',
+    ),
+    Product(
+      id:'p20',
+      title:'LG LED TV',
+      category:'Televisions',
+      price:2000,
+      description:'The groundbreaking Iphone 11 Pro released by Apple',
+      imageUrl:'assets/images/tv3.png',
+    ),
+    Product(
+      id:'p21',
+      title:'Samsung 43\'\' LED TV',
+      category:'Televisions',
+      price:2000,
+      description:'The groundbreaking Iphone 11 Pro released by Apple',
+      imageUrl:'assets/images/tv4.png',
+    ),
+    Product(
+      id:'p22',
+      title:'PS4',
+      category:'Consoles',
+      price:2000,
+      description:'The groundbreaking Iphone 11 Pro released by Apple',
+      imageUrl:'assets/images/ps4.png',
+    ),
+    Product(
+      id:'p23',
+      title:'PS5',
+      category:'Consoles',
+      price:2000,
+      description:'The groundbreaking Iphone 11 Pro released by Apple',
+      imageUrl:'assets/images/ps5.png',
+    ),
+     Product(
+      id:'p24',
+      title:'Nintendo WII',
+      category:'Consoles',
+      price:2000,
+      description:'The groundbreaking Iphone 11 Pro released by Apple',
+      imageUrl:'assets/images/nintendo.png',
+    ),
   ];
+
 
   List<Category> categories=[
     Category(
@@ -168,7 +225,7 @@ class ProductsProvider with ChangeNotifier{
       isSelected:false,
     ),
     Category(
-      id:'Television',
+      id:'Televisions',
       title:'Televisions',
       isSelected:false,
     ),
