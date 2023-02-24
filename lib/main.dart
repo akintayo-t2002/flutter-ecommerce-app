@@ -1,8 +1,11 @@
 import 'package:ecommerceapp/providers/cart_provider.dart';
+import 'package:ecommerceapp/providers/order_provider.dart';
 import 'package:ecommerceapp/providers/products_provider.dart';
 import 'package:ecommerceapp/screens/bottomBar.dart';
 import 'package:ecommerceapp/screens/cart_empty.dart';
 import 'package:ecommerceapp/screens/cart_screen.dart';
+import 'package:ecommerceapp/screens/order_empty.dart';
+import 'package:ecommerceapp/screens/orders_screen.dart';
 import 'package:ecommerceapp/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +26,8 @@ class MyApp extends StatelessWidget {
           create:(ctx)=>ProductsProvider()),
         ChangeNotifierProvider(
           create:(ctx)=>CartProvider()),
+        ChangeNotifierProvider(
+          create:(ctx)=>OrderProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner:false,

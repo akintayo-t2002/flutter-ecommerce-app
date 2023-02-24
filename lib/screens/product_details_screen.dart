@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../components/badge.dart';
 import '../providers/cart_provider.dart';
+import '../utils/utils.dart';
 
 class ProductsDetailsScreen extends StatelessWidget {
   const ProductsDetailsScreen({super.key});
@@ -112,14 +113,16 @@ class ProductsDetailsScreen extends StatelessWidget {
                           ),
                           const SizedBox(height:15,),
                           Expanded(
-                            flex:4,
-                            child: Text(loadedProducts.description,
-                            style:TextStyle(
-                              fontSize:17,
-                              color:Colors.grey.shade700,
-                            ),),
+                            child: ListView(
+                              shrinkWrap:true,
+                              children: [Text(loadedProducts.description,
+                              style:TextStyle(
+                                fontSize:17,
+                                color:Colors.grey.shade700,
+                              ),),
+                          ]),
                           ),
-                          const Spacer(),
+                          // const Spacer(),
                           Padding(
                             padding: const EdgeInsets.only(bottom:15.0),
                             child: Row(
@@ -134,9 +137,9 @@ class ProductsDetailsScreen extends StatelessWidget {
                                 GestureDetector(
                                   onTap:(){
                                  cart.addItem(loadedProducts.id,loadedProducts.title,loadedProducts.price,loadedProducts.imageUrl);
-                                //  ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                                //  showSnackBar(context,message:'Item added successfully',onPressed:(){
-                                //   cart.removeSingleitem(loadedProducts.id);});
+                                 ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                                 showSnackBar(context,message:'Item added successfully',onPressed:(){
+                                  cart.removeSingleitem(loadedProducts.id);});
                                   },
                                   child: Container(
                                     padding:const EdgeInsets.symmetric(horizontal:20,vertical:15),

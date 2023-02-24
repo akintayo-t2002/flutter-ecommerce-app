@@ -1,4 +1,3 @@
-import 'dart:developer' as showlog;
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -23,7 +22,7 @@ class ProductsProvider with ChangeNotifier{
       category:'Consoles',
       title:'PS5 Controller',
       price:100,
-      description:'The groundbreaking PS5 controller released recently by Sony',
+      description:'Experience a deep sense of immersion with the Sony DualSense Wireless Controller, which is specially designed for the PlayStation 5 gaming console. In addition to having responsive game buttons, dual analog sticks, a D-pad, and a clickable 2-point capacitive touch pad, the DualSense enhances supported gaming experiences with vibrational haptic feedback that allow you to feel various effects, bumps, and surface textures.',
       imageUrl:'assets/images/controller2.png',
     ),
     Product(
@@ -31,7 +30,7 @@ class ProductsProvider with ChangeNotifier{
       title:'Earbud',
       category: 'Headphones',
       price:250,
-      description:'The groundbreaking Earbud released recently released',
+      description:'The groundbreaking Earbud released recently released.',
       imageUrl:'assets/images/earbud.png',
     ),
     Product(
@@ -39,7 +38,7 @@ class ProductsProvider with ChangeNotifier{
       title:'Macbook Pro',
       category:'Laptops',
       price:1200,
-      description:'The groundbreaking Macbook Pro built by the apple engineering team',
+      description:'Packed with 33.7 billion transistors, the Apple M1 Pro integrates the CPU, GPU, Neural Engine, I/O, and more into a single system on a chip (SoC). Built with 5nm process technology, the Apple M1 Pro delivers the performance you need without sacrificing power efficiency.',
       imageUrl:'assets/images/macbookpro1.png',
     ),
     Product(
@@ -71,7 +70,7 @@ class ProductsProvider with ChangeNotifier{
       title:'MX Wireless Headphone',
       category:'Headphones',
       price:230,
-      description:'The groundbreaking MX Wireless Headphone recently released',
+      description:'The groundbreaking MX Wireless Headphone recently released.',
       imageUrl:'assets/images/mxwireless.png',
     ),
     Product(
@@ -79,7 +78,7 @@ class ProductsProvider with ChangeNotifier{
       title:'H2 Wireless',
       category:'Headphones',
       price:350,
-      description:'The groundbreaking H2 Wireless Headphone recently released',
+      description:'With Designed ergonomically, the Type C Headphone can fit the ear perfectly and wear comfortably even for long periods of time without any pain. Anti-wrap oxygen-free copper wire inside provides the whole earphones flexibility, make you not only easily walk through backpack and clothes while moving outside activities.',
       imageUrl:'assets/images/h2wireless.png',
     ),
     Product(
@@ -87,7 +86,7 @@ class ProductsProvider with ChangeNotifier{
       title:' M2 Macbook Air',
       category:'Laptops',
       price:2000,
-      description:'The groundbreaking M2 Macbook Air released by Apple',
+      description:'The M2 chip starts the next generation of Apple silicon, with even more of the speed and power efficiency of M1. So you can get more done faster with a more powerful 8‑core CPU. Work with more streams of 4K and 8K ProRes video with the high‑performance media engine. And keep working — or playing — all day and into the night with up to 18 hours of battery life.',
       imageUrl:'assets/images/m2macbook.png',
     ),
      Product(
@@ -95,7 +94,7 @@ class ProductsProvider with ChangeNotifier{
       title:'Iphone 12 ',
       category:'Phones',
       price:850,
-      description:'The groundbreaking Iphone 12 released by Apple',
+      description:'The phone comes with a 6.1-inch touchscreen display with a resolution of 1170x2532 pixels at a pixel density of 460 pixels per inch (ppi). The iPhone 12 supports wireless charging, as well as proprietary fast charging.As far as the cameras are concerned, the iPhone 12 on the rear packs a 12-megapixel primary camera with an f/1.6 aperture and a second 12-megapixel camera with an f/2.4 aperture. The rear camera setup has autofocus. It sports a 12-megapixel camera on the front for selfies, with an f/2.2 aperture.',
       imageUrl:'assets/images/iphone12.png',
     ),
     Product(
@@ -143,7 +142,7 @@ class ProductsProvider with ChangeNotifier{
       title:'Macbook Pro 14''',
       category:'Laptops',
       price:2000,
-      description:'The groundbreaking Macboook Pro 14 '' released by Apple',
+      description:'Packed with 33.7 billion transistors, the Apple M1 Pro integrates the CPU, GPU, Neural Engine, I/O, and more into a single system on a chip (SoC). Built with 5nm process technology, the Apple M1 Pro delivers the performance you need without sacrificing power efficiency',
       imageUrl:'assets/images/macbookpro14.png',
     ),
     Product(
@@ -272,7 +271,6 @@ void categorySelected(int index){
  for(int i=0; i<categories.length; i++) {
     categories[i].isSelected=false;
     categories[index].isSelected=true;
-    showlog.log(category.toString());
     notifyListeners();
  }
 }

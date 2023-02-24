@@ -1,9 +1,10 @@
+import 'package:ecommerceapp/components/quantity_chip.dart';
 import 'package:ecommerceapp/providers/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key, required this.itemName, required this.price,required this.imageUrl, required this.quantity, required this.onTap, required this.id, required this.productId});
+  const CartItem({super.key, required this.itemName, required this.price,required this.imageUrl, required this.quantity, required this.onTap, required this.id, required this.productId,required this.onDelete, required this.onAdd});
   
   final String id;
   final String productId;
@@ -12,6 +13,8 @@ class CartItem extends StatelessWidget {
  final double price;
  final int quantity;
  final VoidCallback onTap;
+ final VoidCallback onDelete;
+ final VoidCallback onAdd;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,7 @@ class CartItem extends StatelessWidget {
         margin:const EdgeInsets.only(
           right:15
         ),
-                  height:85,
+                  height:100,
                   width:double.infinity,
                   decoration:BoxDecoration(
                     color:const Color(0xFFe7e8f1),
@@ -55,7 +58,19 @@ class CartItem extends StatelessWidget {
                             fontWeight:FontWeight.w700,
                             fontSize:18,
                           ),),
-                          Text('$quantity x'),
+                          Row(
+                            children: [
+                             QuantityChip(
+                              onClicked: onDelete,
+                              icon:Icons.remove),
+                              const SizedBox(width:8,),
+                              Text('$quantity',style:const TextStyle(fontSize:16),),
+                              const SizedBox(width:8,),
+                              QuantityChip(
+                              onClicked:onAdd,
+                              icon:Icons.add),
+                          ],
+                          ),
                           Text('\$${price* quantity}',style:TextStyle(
                          fontWeight:FontWeight.w700,
                          color:Colors.grey.shade700,

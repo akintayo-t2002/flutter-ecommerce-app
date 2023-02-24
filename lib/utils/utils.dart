@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-void showSnackBar(BuildContext context,{required String message,required void Function() onPressed}){
+void showSnackBar(BuildContext context,{required String message, required void Function() onPressed}){
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(behavior: SnackBarBehavior.floating,
     content:Text(message),
     action:SnackBarAction(

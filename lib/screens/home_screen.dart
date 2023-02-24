@@ -87,7 +87,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap:(){
                       value.categorySelected(i);
                       value.filteredProd(i);
-                      log(value.getFilteredProducts[i].title);
                     }),
                     scrollDirection:Axis.horizontal,
                  ),

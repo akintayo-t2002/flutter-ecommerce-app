@@ -4,10 +4,14 @@ class Cart{
   final String itemImage;
   final String id;
   final String title;
-  final int quantity;
+  int quantity;
   final double price;
 
   Cart({required this.itemImage,required this.id, required this.title, required this.quantity, required this.price});
+}
+
+enum WhichSelected{
+  add,delete;
 }
 
 class CartProvider with ChangeNotifier{
@@ -77,6 +81,20 @@ class CartProvider with ChangeNotifier{
   void removeCartItem(String productId){
     _item.remove(productId);
     notifyListeners();
+    }
+
+
+    void updateItemQuantity(String productId, WhichSelected picked){
+     switch(picked){
+      case WhichSelected.add: {
+        _item[productId]!.quantity++;
+      }
+      break;
+      case WhichSelected.delete:{
+         _item[productId]!.quantity--;
+      }
+     }
+     notifyListeners();
     }
 
 //code to clear all cart items

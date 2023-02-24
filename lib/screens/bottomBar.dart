@@ -1,7 +1,7 @@
+import 'package:ecommerceapp/screens/orders_screen.dart';
 import 'package:flutter/material.dart';
 import 'favourites_screen.dart';
 import 'home_screen.dart';
-import 'notification_screen.dart';
 import 'profile_screen.dart';
 
 class BottomBar extends StatefulWidget {
@@ -15,7 +15,7 @@ class _BottomBarState extends State<BottomBar> {
   List<Widget> screens=[
    const HomeScreen(),
    const Favouritesscreen(),
-   const NotificationScreen(),
+   const OrdersScreen(),
    const ProfileScreen(),
   ];
 
@@ -40,7 +40,7 @@ class _BottomBarState extends State<BottomBar> {
         items: [
           BottomNavigationBarItem(icon: Image.asset('assets/icons/home.png'),label:'Home'),
           BottomNavigationBarItem(icon: Image.asset('assets/icons/heart.png'),label:'Favourites'),
-          BottomNavigationBarItem(icon: Image.asset('assets/icons/notification1.png'),label:'Notification'),
+          BottomNavigationBarItem(icon: Image.asset('assets/icons/payment.png'),label:'Orders'),
           BottomNavigationBarItem(icon: Image.asset('assets/icons/profile.png'),label:'Profile'),
         ],
       ),

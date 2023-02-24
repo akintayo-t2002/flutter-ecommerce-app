@@ -22,14 +22,15 @@ class FavouritesEmpty extends StatelessWidget {
           mainAxisAlignment:MainAxisAlignment.center,
           children: [
             Image.asset('assets/icons/box-open.png',color:Colors.grey.shade500,),
+            const SizedBox(height:30,),
              Text('Oops, you don\'t have any favourites!',style:TextStyle(
               fontSize:18,
-              color:Colors.grey.shade600,
-              fontWeight:FontWeight.w700,
+              color:Colors.grey.shade800,
+              // fontWeight:FontWeight.w700,
             ),),
             const SizedBox(height:10,),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal:15.0),
+              padding: const EdgeInsets.symmetric(horizontal:35.0),
               child: Text('Explore products and mark them as favourites to see them here',style:TextStyle(
                 fontSize:15,
                 color:Colors.grey.shade500,

@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:ecommerceapp/components/cart_item.dart';
+import 'package:ecommerceapp/providers/order_provider.dart';
 import 'package:ecommerceapp/screens/cart_empty.dart';
+import 'package:ecommerceapp/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,18 +14,10 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cart=Provider.of<CartProvider>(context);
     return Scaffold(
       backgroundColor:Colors.white,
       appBar:AppBar(
-        actions:const [
-          Padding(
-            padding: EdgeInsets.only(right:15.0),
-            child: Chip(label:Text('ORDER NOW',style:TextStyle(
-              color:Colors.white,
-            ),)
-            ,backgroundColor:Colors.black,),
-          ),
-        ],
         backgroundColor:Colors.white,
         elevation:0,
         centerTitle:false,
@@ -38,8 +34,7 @@ class CartScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal:18.0),
-          child: Consumer<CartProvider>(builder:(context,cart,value)=>
-          cart.cartItem.isEmpty?const CartEmpty(): Column(
+          child: cart.cartItem.isEmpty?const CartEmpty(): Column(
             children:[
              Expanded(
                child: ListView.builder(
@@ -48,6 +43,12 @@ class CartScreen extends StatelessWidget {
                 itemBuilder:(ctx,i)=>Padding(
                   padding:const EdgeInsets.only(bottom:15),
                   child:CartItem(
+                    onDelete:(){
+                     cart.cartItem.values.toList()[i].quantity<=1?log('Less than 1'):Provider.of<CartProvider>(context,listen:false).updateItemQuantity(cart.cartItem.keys.toList()[i],WhichSelected.delete);
+                    },
+                    onAdd:(){
+                       Provider.of<CartProvider>(context,listen:false).updateItemQuantity(cart.cartItem.keys.toList()[i],WhichSelected.add);
+                    },
                   id:cart.cartItem.values.toList()[i].id,
                   productId:cart.cartItem.keys.toList()[i],
                   imageUrl:cart.cartItem.values.toList()[i].itemImage,
@@ -85,12 +86,18 @@ class CartScreen extends StatelessWidget {
                           borderRadius:BorderRadius.circular(20),
                         ),
                         child:Row(
-                          children:const [
+                          children:[
                             Padding(
-                              padding: EdgeInsets.all(10.0),
-                              child: Text('Pay Now',style:TextStyle(color:Colors.white,fontSize:15)),
+                              padding:const EdgeInsets.all(10.0),
+                              child: GestureDetector(
+                                onTap:(){
+                               Provider.of<OrderProvider>(context,listen:false).addOrder(cart.cartItem.values.toList(),cart.totalAmount);
+                               showSnackBar(context, message:'Order Placed Successfully', onPressed:(){});
+                               cart.clear();
+                                },
+                                child:const Text('Order Now',style:TextStyle(color:Colors.white,fontSize:15))),
                             ),
-                            Icon(Icons.arrow_forward_ios,color:Colors.white,),
+                            const Icon(Icons.arrow_forward_ios,color:Colors.white,),
                           ],
                         ),
                       ),
@@ -98,7 +105,7 @@ class CartScreen extends StatelessWidget {
                 ),
               ),
             ],
-          ),)
+          ),
         )
       ),
     );
