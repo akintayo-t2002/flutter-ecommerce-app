@@ -83,13 +83,15 @@ class CartProvider with ChangeNotifier{
     notifyListeners();
     }
 
-
+  //code which updates the quantity of the cart item
     void updateItemQuantity(String productId, WhichSelected picked){
      switch(picked){
+      // adds 1 to the total quantity
       case WhichSelected.add: {
         _item[productId]!.quantity++;
       }
       break;
+      // subtracts 1 from the total quantity
       case WhichSelected.delete:{
          _item[productId]!.quantity--;
       }
