@@ -63,9 +63,9 @@ class CartItem extends StatelessWidget {
                              QuantityChip(
                               onClicked: onDelete,
                               icon:Icons.remove),
-                              const SizedBox(width:8,),
+                              const SizedBox(width:12,),
                               Text('$quantity',style:const TextStyle(fontSize:16),),
-                              const SizedBox(width:8,),
+                              const SizedBox(width:12,),
                               QuantityChip(
                               onClicked:onAdd,
                               icon:Icons.add),
