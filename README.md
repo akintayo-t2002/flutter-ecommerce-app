@@ -15,3 +15,6 @@ Highlighting points:
 Future updates:
 - Implementing a store API instead of dummy data for products.
 - Adding user authentication.
+
+Screenshots📷
+![Alt text](../../../Desktop/Simulator%20Screen%20Shot%20-%20iPhone%2014%20Pro%20Max%20-%202023-02-24%20at%2010.10.31.png)
