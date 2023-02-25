@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:card_swiper/card_swiper.dart';
+import 'package:ecommerceapp/components/app_drawer.dart';
 import 'package:ecommerceapp/components/categories_tile.dart';
 import 'package:ecommerceapp/components/custom_field.dart';
 import 'package:ecommerceapp/components/salecard.dart';
@@ -38,20 +39,28 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var size=MediaQuery.of(context).size;
     return Scaffold(
+      drawer:const AppDrawer(),
       body:Consumer<ProductsProvider>(
         builder:(context,value,child)=>SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal:15.0),
             child: Column(
+              crossAxisAlignment:CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text('Discover',
-                style:TextStyle(
-                  fontSize:28,
-                  fontWeight:FontWeight.w700,
-                ),),
+                  children:[
+                  Container(
+                     height:42,
+                      width:42,
+                      decoration:BoxDecoration(
+                        borderRadius:BorderRadius.circular(10),
+                        border:Border.all(color:Colors.grey.shade300,width:2),
+                      ),
+                    child: IconButton(
+                      onPressed:(){}, 
+                      icon:const Icon(Icons.menu)),
+                  ),
                 GestureDetector(
                   onTap:(){
                     Navigator.pushNamed(context,'/third');
@@ -74,7 +83,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
                   ],
                 ),
-               const SizedBox(height:20,),
+                const Text('Discover',
+                style:TextStyle(
+                  fontSize:28,
+                  fontWeight:FontWeight.w700,
+                ),),
+                 const SizedBox(height:10,),
                const CustomField(hintText:'Search', icon:Icons.search),
                const SizedBox(height:10,),
                SizedBox(

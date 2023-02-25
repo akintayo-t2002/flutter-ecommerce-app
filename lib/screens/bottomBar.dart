@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/components/app_drawer.dart';
 import 'package:ecommerceapp/screens/orders_screen.dart';
 import 'package:flutter/material.dart';
 import 'favourites_screen.dart';
@@ -30,6 +31,7 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // drawer:const AppDrawer(),
       bottomNavigationBar:BottomNavigationBar(
         currentIndex:selectedIndex,
         onTap:navigateBottomBar,
