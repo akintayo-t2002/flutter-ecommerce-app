@@ -1,7 +1,6 @@
 import 'package:ecommerceapp/providers/cart_provider.dart';
 import 'package:flutter/material.dart';
 
-import '../components/cart_item.dart';
 
 class OrderItem with ChangeNotifier{
   final String id;

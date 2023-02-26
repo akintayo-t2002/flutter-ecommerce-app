@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 
 class SmallItemCard extends StatelessWidget {
-   SmallItemCard({super.key, required this.itemName, required this.imageUrl, required this.itemPrice,required this.onTap,required this.isToggled});
+   const SmallItemCard({super.key, required this.itemName, required this.imageUrl, required this.itemPrice,required this.onTap,required this.isToggled});
 
   final String itemName;
   final String imageUrl;
   final double itemPrice;
-  void Function()? onTap;
+  final void Function()? onTap;
   final bool isToggled;
 
   @override

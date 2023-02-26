@@ -1,7 +1,7 @@
 import 'package:ecommerceapp/providers/cart_provider.dart';
 import 'package:ecommerceapp/providers/order_provider.dart';
 import 'package:ecommerceapp/providers/products_provider.dart';
-import 'package:ecommerceapp/screens/bottomBar.dart';
+import 'package:ecommerceapp/screens/bottom_bar.dart';
 import 'package:ecommerceapp/screens/cart_screen.dart';
 import 'package:ecommerceapp/screens/orders_screen.dart';
 import 'package:ecommerceapp/screens/product_details_screen.dart';

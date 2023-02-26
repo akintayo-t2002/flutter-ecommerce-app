@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CategoriesTile extends StatelessWidget {
-   CategoriesTile({super.key, required this.category, required this.isClicked,required this.onTap});
+   const CategoriesTile({super.key, required this.category, required this.isClicked,required this.onTap});
 
   final String category;
   final bool isClicked;

@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import '../providers/order_provider.dart';
 
 class OrderBox extends StatefulWidget {
-  OrderBox({super.key,required this.order,});
+  const OrderBox({super.key,required this.order,});
 
   final OrderItem order;
 

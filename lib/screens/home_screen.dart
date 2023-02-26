@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:card_swiper/card_swiper.dart';
 import 'package:ecommerceapp/components/app_drawer.dart';
 import 'package:ecommerceapp/components/categories_tile.dart';
