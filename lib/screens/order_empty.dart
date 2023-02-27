@@ -1,3 +1,5 @@
+import 'package:ecommerceapp/components/app_drawer.dart';
+import 'package:ecommerceapp/components/icon_box.dart';
 import 'package:flutter/material.dart';
 
 class OrderEmpty extends StatelessWidget {
@@ -8,23 +10,17 @@ class OrderEmpty extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer:const AppDrawer(),
       key:_scaffoldKey,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: 42,
-            width: 42,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: Colors.grey.shade300, width: 2),
-            ),
-            child: IconButton(
-                onPressed: () {
-                  _scaffoldKey.currentState!.openDrawer();
-                },
-                icon: const Icon(Icons.menu)),
-          ),
+        IconBox(child: 
+        IconButton(
+          onPressed:(){
+           _scaffoldKey.currentState!.openDrawer();
+         }, 
+        icon:const Icon(Icons.menu))),
           const Spacer(),
           Center(
             child: Column(

@@ -2,6 +2,7 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:ecommerceapp/components/app_drawer.dart';
 import 'package:ecommerceapp/components/categories_tile.dart';
 import 'package:ecommerceapp/components/custom_field.dart';
+import 'package:ecommerceapp/components/icon_box.dart';
 import 'package:ecommerceapp/components/salecard.dart';
 import 'package:ecommerceapp/components/small_item_card.dart';
 import 'package:ecommerceapp/providers/products_provider.dart';
@@ -51,19 +52,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   mainAxisAlignment:MainAxisAlignment.spaceBetween,
                   children:[
-                  Container(
-                     height:42,
-                      width:42,
-                      decoration:BoxDecoration(
-                        borderRadius:BorderRadius.circular(10),
-                        border:Border.all(color:Colors.grey.shade300,width:2),
-                      ),
-                    child: IconButton(
+                  IconBox(child:IconButton(
                       onPressed:(){
                         _scaffoldKey.currentState!.openDrawer();
                       }, 
-                      icon:const Icon(Icons.menu)),
-                  ),
+                      icon:const Icon(Icons.menu))),
                 GestureDetector(
                   onTap:(){
                     Navigator.pushNamed(context,'/third');
@@ -72,15 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     builder:(context,value,child)=>Badge(
                     color:Colors.red,
                     value:value.cartCount.toString(),
-                    child: Container(
-                      height:42,
-                      width:42,
-                      decoration:BoxDecoration(
-                        borderRadius:BorderRadius.circular(12),
-                        border:Border.all(color:Colors.grey.shade300,width:2),
-                      ),
-                      child:Image.asset('assets/icons/shopping-bag.png',height:5,),
-                    ),
+                    child: IconBox(child:Image.asset('assets/icons/shopping-bag.png'))
                   ),
                   )
                 )

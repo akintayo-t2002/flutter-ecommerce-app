@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/components/app_drawer.dart';
+import 'package:ecommerceapp/components/icon_box.dart';
 import 'package:ecommerceapp/components/order_box.dart';
 import 'package:ecommerceapp/providers/order_provider.dart';
 import 'package:ecommerceapp/screens/order_empty.dart';
@@ -21,19 +22,12 @@ class OrdersScreen extends StatelessWidget {
           child: orders.orderData.isEmpty? OrderEmpty():Column(
             crossAxisAlignment:CrossAxisAlignment.start,
             children:[
-              Container(
-                     height:42,
-                      width:42,
-                      decoration:BoxDecoration(
-                        borderRadius:BorderRadius.circular(10),
-                        border:Border.all(color:Colors.grey.shade300,width:2),
-                      ),
-                    child: IconButton(
+              IconBox(
+                child:IconButton(
                       onPressed:(){
                         _scaffoldKey.currentState!.openDrawer();
                       }, 
-                      icon:const Icon(Icons.menu)),
-                  ),
+                      icon:const Icon(Icons.menu))),
                  const SizedBox(height:20,),
              const Text('My Orders',style:TextStyle(
                 fontSize:27,
