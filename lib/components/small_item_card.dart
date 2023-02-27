@@ -31,7 +31,7 @@ class SmallItemCard extends StatelessWidget {
               Text(itemName,style:const TextStyle(
                 fontSize:17
               ),),
-              Text('\$$itemPrice',style:const TextStyle(
+              Text('\$${itemPrice.toStringAsFixed(0)}',style:const TextStyle(
                 fontSize:20,
                 fontWeight:FontWeight.w700,
               ),)

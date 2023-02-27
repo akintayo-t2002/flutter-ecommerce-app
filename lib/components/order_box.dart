@@ -38,7 +38,7 @@ class _OrderBoxState extends State<OrderBox> {
                     fontSize:18,
                   ),),
                   const SizedBox(height:5,),
-                  Text('Total: \$${widget.order.amount}',style:const TextStyle(
+                  Text('Total: \$${widget.order.amount.toStringAsFixed(0)}',style:const TextStyle(
                     fontSize:16,
                     color:Colors.green,
                   ),)
@@ -61,8 +61,8 @@ class _OrderBoxState extends State<OrderBox> {
                 children:widget.order.products.map((ord) =>Row(
                   mainAxisAlignment:MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(ord.title,style:const TextStyle(color:Colors.white,fontSize:16),),
-                    Text('\$${ord.price.toStringAsFixed(0)}',style:const TextStyle(color:Colors.green),)
+                    Text('${ord.title} (${ord.quantity} items)',style:const TextStyle(color:Colors.white,fontSize:16),),
+                    Text('\$${ord.price*ord.quantity}',style:const TextStyle(color:Colors.green),)
                   ],
                 )).toList(),
               ),

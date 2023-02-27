@@ -1,4 +1,3 @@
-
 import 'package:ecommerceapp/screens/orders_screen.dart';
 import 'package:flutter/material.dart';
 import 'favourites_screen.dart';
@@ -16,7 +15,7 @@ class _BottomBarState extends State<BottomBar> {
   List<Widget> screens=[
    const HomeScreen(),
    const Favouritesscreen(),
-   const OrdersScreen(),
+   OrdersScreen(),
    const ProfileScreen(),
   ];
 

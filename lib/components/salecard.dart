@@ -37,7 +37,7 @@ class SaleCard extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      '\$$itemPrice',
+                      '\$${itemPrice.toStringAsFixed(0)}',
                       style:const TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,

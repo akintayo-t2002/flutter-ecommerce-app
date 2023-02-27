@@ -30,6 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
+
+ final _scaffoldKey= GlobalKey<ScaffoldState>();
   
 
   
@@ -37,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var size=MediaQuery.of(context).size;
     return Scaffold(
+      key:_scaffoldKey,
       drawer:const AppDrawer(),
       body:Consumer<ProductsProvider>(
         builder:(context,value,child)=>SafeArea(
@@ -56,7 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         border:Border.all(color:Colors.grey.shade300,width:2),
                       ),
                     child: IconButton(
-                      onPressed:(){}, 
+                      onPressed:(){
+                        _scaffoldKey.currentState!.openDrawer();
+                      }, 
                       icon:const Icon(Icons.menu)),
                   ),
                 GestureDetector(
